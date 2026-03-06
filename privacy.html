@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Form - Fitness & Wellness Center in New York</title>
+  <meta name="description" content="Experience holistic wellness at Lumina Form. We offer personalized fitness programs, nutritional guidance, body sculpting classes, and wellness workshops in NY.">
+  <link rel="icon" href="favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@300;700&display=swap');
+
+    :root {
+      --primary-50: oklch(0.96 0.12 258);
+      --primary-300: oklch(0.75 0.13 258);
+      --primary-500: oklch(0.55 0.15 258);
+      --primary-700: oklch(0.40 0.15 258);
+      --surface-glass: rgba(255, 255, 255, 0.1);
+      --surface-glass-dark: rgba(26, 26, 46, 0.6);
+      --background-dark: #1a1a2e;
+      --border-radius: 16px;
+      --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      --hover-shadow-grow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+
+    body {
+      font-family: 'PT Serif', serif;
+      font-weight: 300;
+      color: #e0e0e0;
+      background-color: var(--background-dark);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .btn-primary-gradient {
+      background: linear-gradient(90deg, var(--primary-500) 0%, var(--primary-700) 100%);
+      color: white;
+      border-radius: var(--border-radius);
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .btn-primary-gradient:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      filter: brightness(1.1);
+    }
+
+    .glassmorphic-card {
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      background-clip: padding-box; /* Ensures blur doesn't apply to border box */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glassmorphic-card:hover {
+      box-shadow: var(--hover-shadow-grow);
+    }
+
+    .glassmorphic-pane-dark {
+      background: var(--surface-glass-dark);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      background-clip: padding-box;
+      border: 1px solid rgba(255, 255, 255, 0.05); /* Even subtler border for dark */
+    }
+
+    .circular-icon-container {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--surface-glass);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.3s ease;
+    }
+    .circular-icon-container:hover {
+      background: var(--primary-300);
+    }
+
+    .section-spacing {
+      padding-top: 1.5rem; /* 24px */
+      padding-bottom: 1.5rem; /* 24px */
+    }
+
+    /* Subtle hover effect for images */
+    .image-hover-zoom {
+      transition: transform 0.3s ease;
+    }
+    .image-hover-zoom:hover {
+      transform: scale(1.03);
+    }
+
+    .text-fade-in {
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Ensure text contrast for dark backgrounds */
+    .dark-bg-text {
+        color: #f8f9fa; /* Light text on dark bg */
+    }
+    .dark-bg-text a {
+        color: var(--primary-300);
+    }
+    .dark-bg-text a:hover {
+        color: var(--primary-50);
+    }
+
+    /* Cookie Consent */
+    #cookie-consent-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(33, 37, 41, 0.9); /* Darker backdrop so text is visible */
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: none; /* Hidden by default */
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    #cookie-consent-banner button {
+      background-color: var(--primary-500);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    #cookie-consent-banner button:hover {
+      background-color: var(--primary-700);
+    }
+  </style>
+</head>
+<body class="dark-bg-text">
+  <header class="bg-gradient-to-r from-gray-900 to-[#1a1a2e] sticky top-0 z-50 shadow-lg">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+      <div class="flex-shrink-0">
+        <a href="#hero" class="text-2xl font-bold text-white tracking-wider">Lumina Form</a>
+      </div>
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-6">
+          <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Services</a>
+          <a href="#philosophy" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Philosophy</a>
+          <a href="#booking" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Book Class</a>
+          <a href="#tips" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Health Tips</a>
+          <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+        </div>
+      </div>
+      <div class="-mr-2 flex md:hidden">
+        
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    
+    <div class="md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800">
+        <a href="#services" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Services</a>
+        <a href="#philosophy" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Philosophy</a>
+        <a href="#booking" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Book Class</a>
+        <a href="#tips" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Health Tips</a>
+        <a href="#contact" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Contact</a>
+      </div>
+    </div>
+  </header>
+<main>
+<style>
+  #luminaform-privacy-policy {
+    padding-top: 7rem;
+  }
+</style>
+<section id="luminaform-privacy-policy">
+    <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center;">Privacy Policy</h2>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        At LuminaForm, your privacy is paramount. This Privacy Policy outlines how LuminaForm collects, uses, maintains, and discloses information collected from users (each, a "User") of our online platform and services. This policy applies to our site, all products, and services offered by LuminaForm, located at 773 Hancock Street, New York, New York, 11221, USA.
+    </p>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Information We Collect</h3>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+        We may collect personal identification information from Users in a variety of ways, including, but not limited to, when Users visit our site, register on the site, book a class, subscribe to a newsletter, fill out a form, and in connection with other activities, services, features or resources we make available on our online platform. We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personally identifiable information, although it may prevent them from engaging in certain site-related activities.
+    </p>
+    <ul style="list-style: disc; padding-left: 1.75rem; margin-bottom: 1.5rem;">
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Personal Data:</strong> This includes information such as your name, email address, phone number, physical address, and payment information (processed securely by third-party payment processors). This is collected when you register for an account, book services, or contact us.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Health-Related Information:</strong> For personalized fitness programs, nutritional guidance, and body sculpting classes, we may collect information about your fitness goals, health conditions, dietary preferences, and body measurements. This sensitive personal data is collected with your explicit consent and is used solely to provide tailored services to you.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Usage Data:</strong> We may collect non-personal identification information about Users whenever they interact with our site. This may include the browser name, the type of computer, and technical information about Users' means of connection to our Site, such as the operating system and the Internet service providers utilized and other similar information.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Cookies:</strong> Our site may use "cookies" to enhance User experience. Users' web browsers place cookies on their hard drive for record-keeping purposes and sometimes to track information about them. Users may choose to set their web browser to refuse cookies or to alert them when cookies are being sent. If they do so, note that some parts of the site may not function properly.
+        </li>
+    </ul>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">How We Use Collected Information</h3>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+        LuminaForm collects and uses Users' personal information for the following purposes:
+    </p>
+    <ul style="list-style: disc; padding-left: 1.75rem; margin-bottom: 1.5rem;">
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>To Provide and Improve Services:</strong> To deliver personalized fitness programs, nutritional guidance, body sculpting classes, and wellness workshops, and to continually improve our offerings based on your feedback and preferences.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>To Process Transactions:</strong> To process payments for services booked through our online platform. We do not store credit card details; these are handled by secure third-party payment processors.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>To Send Periodic Emails:</strong> We may use the email address to send User information and updates pertaining to their services. It may also be used to respond to their inquiries, questions, and other requests. If User decides to opt-in to our mailing list, they will receive emails that may include company news, updates, related product or service information, etc.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>To Personalize User Experience:</strong> We may use information in the aggregate to understand how our Users as a group use the services and resources provided on our site.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>To Administer Content, Promotions, Surveys or Other Site Features:</strong> To send Users information they agreed to receive about topics we think will be of interest to them.
+        </li>
+    </ul>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">How We Protect Your Information</h3>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+        We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our site.
+    </p>
+    <ul style="list-style: disc; padding-left: 1.75rem; margin-bottom: 1.5rem;">
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Encryption:</strong> Sensitive and private data exchange between the Site and its Users happens over an SSL secured communication channel and is encrypted and protected with digital signatures.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Access Control:</strong> Access to personal data is restricted to authorized employees, contractors, and agents who need to know that information in order to operate, develop, or improve our services.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Regular Audits:</strong> Our security practices are regularly reviewed and updated to ensure the highest level of protection.
+        </li>
+    </ul>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Sharing Your Personal Information</h3>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+        We do not sell, trade, or rent Users' personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above.
+    </p>
+    <ul style="list-style: disc; padding-left: 1.75rem; margin-bottom: 1.5rem;">
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Third-Party Service Providers:</strong> We may use third-party service providers to help us operate our business and the online platform or administer activities on our behalf, such as sending out newsletters or surveys. We may share your information with these third parties for those limited purposes provided that you have given us your permission.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Legal Requirements:</strong> We may disclose your information when legally required to do so, for law enforcement purposes, or to comply with legal processes or government requests.
+        </li>
+    </ul>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Data Retention</h3>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+        We will retain your personal data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your personal data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.
+    </p>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Your Data Protection Rights (GDPR)</h3>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+        If you are a resident of the European Economic Area (EEA), you have certain data protection rights. LuminaForm aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your personal data.
+    </p>
+    <ul style="list-style: disc; padding-left: 1.75rem; margin-bottom: 1.5rem;">
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>The right to access:</strong> You have the right to request copies of your personal data.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>The right to rectification:</strong> You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>The right to erasure:</strong> You have the right to request that we erase your personal data, under certain conditions.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>The right to restrict processing:</strong> You have the right to request that we restrict the processing of your personal data, under certain conditions.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>The right to object to processing:</strong> You have the right to object to our processing of your personal data, under certain conditions.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>The right to data portability:</strong> You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.
+        </li>
+        <li style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>The right to withdraw consent:</strong> You have the right to withdraw your consent at any time where LuminaForm relied on your consent to process your personal information.
+        </li>
+    </ul>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at info@luminaform.com.
+    </p>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Changes to This Privacy Policy</h3>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        LuminaForm has the discretion to update this privacy policy at any time. When we do, we will revise the updated date at the bottom of this page. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.
+    </p>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Your Acceptance of These Terms</h3>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        By using this online platform, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our site. Your continued use of the site following the posting of changes to this policy will be deemed your acceptance of those changes.
+    </p>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Contacting Us</h3>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at:
+    </p>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.5rem; font-weight: 600;">LuminaForm</p>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.5rem;">773 Hancock Street,</p>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.5rem;">New York, New York, 11221</p>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0.5rem;">USA</p>
+    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">Phone: +12742650387</p>
+
+    <p style="font-size: 0.875rem; line-height: 1.6; margin-top: 2rem; text-align: right;">
+        <em>Last updated: October 26, 2023</em>
+    </p>
+</section>
+</main>
+<footer id="contact" class="bg-[#212529] dark-bg-text py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div class="mb-8 md:mb-0">
+          <h3 class="text-2xl font-bold mb-4">Lumina Form</h3>
+          <p class="text-gray-300 font-light mb-2">Your partner in holistic well-being.</p>
+          <p class="text-gray-400 font-light">Nurturing body, mind, and spirit for a healthier you.</p>
+        </div>
+
+        <div class="mb-8 md:mb-0">
+          <h4 class="text-xl font-bold mb-4">Reach Out</h4>
+          <p class="text-gray-300 font-light flex items-center md:justify-start justify-center mb-2">
+            <span class="circular-icon-container mr-3 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </span>
+            773 Hancock Street, New York, NY 11221, USA
+          </p>
+          <p class="text-gray-300 font-light flex items-center md:justify-start justify-center mb-2">
+            <span class="circular-icon-container mr-3 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </span>
+            +12742650387
+          </p>
+          <a href="mailto:info@DOMAIN_NAME_REPLACE" class="text-gray-300 font-light flex items-center md:justify-start justify-center hover:text-white transition duration-300">
+            <span class="circular-icon-container mr-3 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </span>
+            info@DOMAIN_NAME_REPLACE
+          </a>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#services" class="text-gray-300 hover:text-white transition duration-300 font-light">Services</a></li>
+            <li><a href="#philosophy" class="text-gray-300 hover:text-white transition duration-300 font-light">Philosophy</a></li>
+            <li><a href="#booking" class="text-gray-300 hover:text-white transition duration-300 font-light">Book a Class</a></li>
+            <li><a href="./privacy.html" class="text-gray-300 hover:text-white transition duration-300 font-light">Privacy Policy</a></li>
+            <li><a href="./tos.html" class="text-gray-300 hover:text-white transition duration-300 font-light">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm font-light">
+        <p>&copy; 2024 Lumina Form. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-consent-banner">
+    <p>We use cookies to ensure you get the best experience on our website. By continuing to use this site, you agree to our <a href="./privacy.html" class="underline text-blue-300 hover:text-blue-500">Privacy Policy</a>.</p>
+    <button id="accept-cookies">Accept</button>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('[aria-controls="mobile-menu"]').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+      this.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Cookie Consent Logic
+    const cookieNamePrefix = "consent_"; // Matches the logic from instructions
+    const consentCookieName = cookieNamePrefix + "status";
+    const cookieBanner = document.getElementById('cookie-consent-banner');
+    const acceptButton = document.getElementById('accept-cookies');
+
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    if (!getCookie(consentCookieName)) {
+      cookieBanner.style.display = 'block';
+    }
+
+    acceptButton.addEventListener('click', function() {
+      setCookie(consentCookieName, "accepted", 365); // Consent valid for 1 year
+      cookieBanner.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

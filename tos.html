@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Form - Fitness & Wellness Center in New York</title>
+  <meta name="description" content="Experience holistic wellness at Lumina Form. We offer personalized fitness programs, nutritional guidance, body sculpting classes, and wellness workshops in NY.">
+  <link rel="icon" href="favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@300;700&display=swap');
+
+    :root {
+      --primary-50: oklch(0.96 0.12 258);
+      --primary-300: oklch(0.75 0.13 258);
+      --primary-500: oklch(0.55 0.15 258);
+      --primary-700: oklch(0.40 0.15 258);
+      --surface-glass: rgba(255, 255, 255, 0.1);
+      --surface-glass-dark: rgba(26, 26, 46, 0.6);
+      --background-dark: #1a1a2e;
+      --border-radius: 16px;
+      --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      --hover-shadow-grow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+
+    body {
+      font-family: 'PT Serif', serif;
+      font-weight: 300;
+      color: #e0e0e0;
+      background-color: var(--background-dark);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .btn-primary-gradient {
+      background: linear-gradient(90deg, var(--primary-500) 0%, var(--primary-700) 100%);
+      color: white;
+      border-radius: var(--border-radius);
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .btn-primary-gradient:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      filter: brightness(1.1);
+    }
+
+    .glassmorphic-card {
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      background-clip: padding-box; /* Ensures blur doesn't apply to border box */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glassmorphic-card:hover {
+      box-shadow: var(--hover-shadow-grow);
+    }
+
+    .glassmorphic-pane-dark {
+      background: var(--surface-glass-dark);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      background-clip: padding-box;
+      border: 1px solid rgba(255, 255, 255, 0.05); /* Even subtler border for dark */
+    }
+
+    .circular-icon-container {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--surface-glass);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.3s ease;
+    }
+    .circular-icon-container:hover {
+      background: var(--primary-300);
+    }
+
+    .section-spacing {
+      padding-top: 1.5rem; /* 24px */
+      padding-bottom: 1.5rem; /* 24px */
+    }
+
+    /* Subtle hover effect for images */
+    .image-hover-zoom {
+      transition: transform 0.3s ease;
+    }
+    .image-hover-zoom:hover {
+      transform: scale(1.03);
+    }
+
+    .text-fade-in {
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Ensure text contrast for dark backgrounds */
+    .dark-bg-text {
+        color: #f8f9fa; /* Light text on dark bg */
+    }
+    .dark-bg-text a {
+        color: var(--primary-300);
+    }
+    .dark-bg-text a:hover {
+        color: var(--primary-50);
+    }
+
+    /* Cookie Consent */
+    #cookie-consent-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(33, 37, 41, 0.9); /* Darker backdrop so text is visible */
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: none; /* Hidden by default */
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    #cookie-consent-banner button {
+      background-color: var(--primary-500);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    #cookie-consent-banner button:hover {
+      background-color: var(--primary-700);
+    }
+  </style>
+</head>
+<body class="dark-bg-text">
+  <header class="bg-gradient-to-r from-gray-900 to-[#1a1a2e] sticky top-0 z-50 shadow-lg">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+      <div class="flex-shrink-0">
+        <a href="#hero" class="text-2xl font-bold text-white tracking-wider">Lumina Form</a>
+      </div>
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-6">
+          <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Services</a>
+          <a href="#philosophy" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Philosophy</a>
+          <a href="#booking" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Book Class</a>
+          <a href="#tips" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Health Tips</a>
+          <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+        </div>
+      </div>
+      <div class="-mr-2 flex md:hidden">
+        
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    
+    <div class="md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800">
+        <a href="#services" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Services</a>
+        <a href="#philosophy" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Philosophy</a>
+        <a href="#booking" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Book Class</a>
+        <a href="#tips" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Health Tips</a>
+        <a href="#contact" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Contact</a>
+      </div>
+    </div>
+  </header>
+<main>
+<style>
+  #luminaform-terms-conditions {
+    padding-top: 7rem;
+  }
+</style>
+<section id="luminaform-terms-conditions">
+    <h2 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 2rem;">Terms and Conditions for Lumina Form</h2>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">Welcome to Lumina Form! These Terms and Conditions ("Terms") govern your access to and use of our website, services, and content (collectively, "the Service"). By accessing or using the Service, you signify your agreement to these Terms. If you do not agree to these Terms, you may not access or use the Service.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">1. Acceptance of Terms</h3>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">By using our online platform, you confirm that you are at least 18 years of age or are accessing the service under the supervision of a parent or guardian. You agree to comply with all applicable local, state, national, and international laws, rules, and regulations.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">2. Services Provided</h3>
+    <p style="font-size: 1rem; margin-bottom: 1rem;">Lumina Form offers a range of fitness and wellness services including:</p>
+    <ul style="font-size: 1rem; list-style: disc; margin-left: 2rem; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">Personalized fitness programs</li>
+        <li style="margin-bottom: 0.5rem;">Nutritional guidance</li>
+        <li style="margin-bottom: 0.5rem;">Body sculpting classes</li>
+        <li style="margin-bottom: 0.5rem;">Wellness workshops</li>
+    </ul>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">Our online platform also provides information about these services, enables class bookings, and shares health tips. All services are subject to availability and the specific terms outlined during the booking process.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">3. User Accounts</h3>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">To access certain features of our Service, such as booking classes, you may need to register for an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete. You are responsible for safeguarding your password and for any activities or actions under your account. Lumina Form cannot and will not be liable for any loss or damage arising from your failure to comply with these requirements.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">4. Booking and Cancellations</h3>
+    <p style="font-size: 1rem; margin-bottom: 1rem;">Bookings for personalized fitness programs, classes, and workshops are made through our online platform. Specific cancellation policies apply to each service and will be communicated at the time of booking. Generally, cancellations made within a certain timeframe may incur a fee or result in the forfeiture of the service fee.</p>
+    <ul style="font-size: 1rem; list-style: disc; margin-left: 2rem; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">For class bookings, a minimum of 24 hours notice is required for free cancellation.</li>
+        <li style="margin-bottom: 0.5rem;">For personalized programs and workshops, cancellation policies will be detailed in your service agreement.</li>
+    </ul>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">5. Health Disclaimer</h3>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">The information and services provided by Lumina Form are for informational purposes only and are not intended as medical advice. Always consult with a qualified healthcare professional before beginning any new fitness or nutritional program, especially if you have any pre-existing health conditions or concerns. By using our Service, you acknowledge and agree that Lumina Form is not a healthcare provider and does not provide medical services. Your participation in any fitness activities or adherence to nutritional guidance is at your own risk.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">6. Intellectual Property</h3>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">All content on this website, including text, graphics, logos, images, as well as the compilation thereof, and any software used on the site, is the property of Lumina Form or its suppliers and protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on our Service without the prior written consent of Lumina Form.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">7. Limitation of Liability</h3>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">To the fullest extent permitted by applicable law, Lumina Form and its affiliates, directors, employees, agents, suppliers, or licensors shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">8. Indemnification</h3>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">You agree to defend, indemnify, and hold harmless Lumina Form and its licensee and licensors, and their employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees), resulting from or arising out of (a) your use and access of the Service, by you or any person using your account and password; (b) a breach of these Terms; or (c) your violation of any rights of another party.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">9. Governing Law</h3>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">These Terms shall be governed and construed in accordance with the laws of New York, USA, without regard to its conflict of law provisions.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">10. Changes to Terms</h3>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
+
+    <h3 style="font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem;">11. Contact Us</h3>
+    <p style="font-size: 1rem; margin-bottom: 1.5rem;">If you have any questions about these Terms, please contact us:</p>
+    <ul style="font-size: 1rem; list-style: none; margin-left: 0; padding-left: 0; margin-bottom: 3rem;">
+        <li style="margin-bottom: 0.5rem;">By mail: 773 Hancock Street, New York, New York, 11221, USA</li>
+    </ul>
+</section>
+</main>
+<footer id="contact" class="bg-[#212529] dark-bg-text py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div class="mb-8 md:mb-0">
+          <h3 class="text-2xl font-bold mb-4">Lumina Form</h3>
+          <p class="text-gray-300 font-light mb-2">Your partner in holistic well-being.</p>
+          <p class="text-gray-400 font-light">Nurturing body, mind, and spirit for a healthier you.</p>
+        </div>
+
+        <div class="mb-8 md:mb-0">
+          <h4 class="text-xl font-bold mb-4">Reach Out</h4>
+          <p class="text-gray-300 font-light flex items-center md:justify-start justify-center mb-2">
+            <span class="circular-icon-container mr-3 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </span>
+            773 Hancock Street, New York, NY 11221, USA
+          </p>
+          <p class="text-gray-300 font-light flex items-center md:justify-start justify-center mb-2">
+            <span class="circular-icon-container mr-3 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </span>
+            +12742650387
+          </p>
+          <a href="mailto:info@DOMAIN_NAME_REPLACE" class="text-gray-300 font-light flex items-center md:justify-start justify-center hover:text-white transition duration-300">
+            <span class="circular-icon-container mr-3 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </span>
+            info@DOMAIN_NAME_REPLACE
+          </a>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#services" class="text-gray-300 hover:text-white transition duration-300 font-light">Services</a></li>
+            <li><a href="#philosophy" class="text-gray-300 hover:text-white transition duration-300 font-light">Philosophy</a></li>
+            <li><a href="#booking" class="text-gray-300 hover:text-white transition duration-300 font-light">Book a Class</a></li>
+            <li><a href="./privacy.html" class="text-gray-300 hover:text-white transition duration-300 font-light">Privacy Policy</a></li>
+            <li><a href="./tos.html" class="text-gray-300 hover:text-white transition duration-300 font-light">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm font-light">
+        <p>&copy; 2024 Lumina Form. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-consent-banner">
+    <p>We use cookies to ensure you get the best experience on our website. By continuing to use this site, you agree to our <a href="./privacy.html" class="underline text-blue-300 hover:text-blue-500">Privacy Policy</a>.</p>
+    <button id="accept-cookies">Accept</button>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('[aria-controls="mobile-menu"]').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+      this.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Cookie Consent Logic
+    const cookieNamePrefix = "consent_"; // Matches the logic from instructions
+    const consentCookieName = cookieNamePrefix + "status";
+    const cookieBanner = document.getElementById('cookie-consent-banner');
+    const acceptButton = document.getElementById('accept-cookies');
+
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    if (!getCookie(consentCookieName)) {
+      cookieBanner.style.display = 'block';
+    }
+
+    acceptButton.addEventListener('click', function() {
+      setCookie(consentCookieName, "accepted", 365); // Consent valid for 1 year
+      cookieBanner.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
