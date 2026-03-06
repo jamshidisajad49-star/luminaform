@@ -150,6 +150,16 @@
       background-color: var(--primary-700);
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTP08B4056"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YTP08B4056');
+</script>
+
 </head>
 <body class="dark-bg-text">
   <header class="bg-gradient-to-r from-gray-900 to-[#1a1a2e] sticky top-0 z-50 shadow-lg">
